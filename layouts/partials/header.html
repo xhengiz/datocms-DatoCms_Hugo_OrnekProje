@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="<%= settings.language %>">
   <head>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bilgiç Mutfak Ürünleri</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content=" Thor HTML5 Template">
+    <meta name="author" content="mokawed">
+    <link href='http://fonts.googleapis.com/css?family=PT+Mono%7cOpen+Sans:400italic,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <link rel="stylesheet" href="/assets/css/responsive.css"/>
+
     {{ if eq .Site.Params.env "production" }}
       <link rel="stylesheet" href="/assets/all.css">
     {{ end }}
@@ -15,9 +22,47 @@
     {{ end }}
   </head>
   <body>
-    <div>
-      xh selam 2
-    </div>
+    <header id="top-header" >
+      <div class="container">
+          <div class="logo" style="background-color: #3f51b5">
+              
+              <img src="img/logo1.png" style="height: 87px; width:  185px;" />
+          </div><!--end logo-->
+          <span id="btn-menu"><i class="fa fa-list"></i></span>
+          <nav id="main-nav">
+              <ul>
+                  <li><a href='#all'>Ana Sayfa</a>
+                      <ul>
+                        {{ $currentNode := . }}
+                        {{ range .Site.Menus.main }}
+                          <li{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} class="is-active"{{end}}>
+                            <a href="{{ .URL }}">{{ .Name }}</a>
+                          </li>
+                        {{ end }}
+
+                          <li><a href='index.html'>ANA SAYFA</a> </li>
+                          <li><a href='home-2.html'>HAKKIMIZDA</a></li>
+                          <li><a href='home-parallax.html'>ÜRÜNLER</a></li>
+                          <li><a href='home-parallax-2.html'>İLETİŞİM</a></li>
+                          <li><a href='home-zoom-parallax.html'>zoom on scroll</a></li>
+                          <li><a href='home-bg-slideshow.html'>home-bg-slider</a></li>
+                          <li><a href='home-rotate-text-1.html'>rotate text-1</a></li>
+                          <li><a href='home-rotate-text-2.html'>rotate text-2</a></li>
+                          <li><a href='home-video.html'>home-video</a></li>
+
+                      </ul>
+
+                  </li>
+                  <li><a href='hakkimizda.html'>HAKKIMIZDA</a> </li>
+                  <li><a href='#our-services'>HAKKIMIZDA</a> </li>
+                  <li><a href='#our-portflio'>ÜRÜNLER</a></li>
+                  <li><a href='#about-us'>İLETİŞİM</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>	
+  <!-- ////////////////////// END   TOP HEADER /////////////////////// -->
+<!--
     <div class="container">
       <div class="container__sidebar">
         <div class="sidebar">
@@ -28,21 +73,6 @@
           <div class="sidebar__intro">
             {{ .Site.Data.settings.intro | markdownify }}
           </div>
-
-          <ul class="sidebar__menu">
-            {{ $currentNode := . }}
-            {{ range .Site.Menus.main }}
-              <li{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} class="is-active"{{end}}>
-                <a href="{{ .URL }}">{{ .Name }}</a>
-              </li>
-            {{ end }}
-          </ul>
-
-          <p class="sidebar__social">
-            {{ range .Site.Data.settings.socialProfiles }}
-              <a href="{{ .url }}" class="social social--{{ .type }}"></a>
-            {{ end }}
-          </p>
 
           <div class="sidebar__copyright">
             {{ .Site.Data.settings.copyright }}
@@ -60,3 +90,4 @@
             </div>
           </div>
         </div>
+-->
